@@ -1,4 +1,4 @@
-name: Copy Objectives From Upstream
+name: Copy Issues From Template
 on:
   # You can run this workflow from the Actions Tab
   workflow_dispatch:
@@ -26,6 +26,8 @@ jobs:
 
 
     - name: Copy Issues
+      env:
+        GH_TOKEN: ${{ secrets.ISSUES_TOKEN }}
       run: |
         ./save_issues.sh
         ./load_issues.sh
